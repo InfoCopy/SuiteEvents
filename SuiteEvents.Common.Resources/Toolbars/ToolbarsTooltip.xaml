@@ -1,0 +1,24 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ToolTip x:Key="NewTooltip" Content="Nuovo"></ToolTip>
+    <ToolTip x:Key="EditTooltip" Content="Modifica"></ToolTip>
+    <ToolTip x:Key="SaveTooltip" Content="Salva"></ToolTip>
+    <ToolTip x:Key="DeleteTooltip" Content="Elimina"></ToolTip>
+    <ToolTip x:Key="DeleteAllTooltip" Content="Elimina Tutti gli Elementi"></ToolTip>
+    <ToolTip x:Key="ExportTooltip" Content="Esporta"></ToolTip>
+    <ToolTip x:Key="LoadTooltip" Content="Carica i Dati"></ToolTip>
+    <ToolTip x:Key="ExitTooltip" Content="Esci"></ToolTip>
+    <ToolTip x:Key="SearchTooltip" Content="Cerca"></ToolTip>
+    <ToolTip x:Key="PrintTooltip" Content="Stampa"></ToolTip>
+    <ToolTip x:Key="GridTooltip" Content="Griglia"></ToolTip>
+    <ToolTip x:Key="BackTooltip" Content="Indietro"></ToolTip>
+    
+    <ToolTip x:Key="BoldTooltip" Content="Grassetto"></ToolTip>
+    <ToolTip x:Key="ItalicTooltip" Content="Corsivo"></ToolTip>
+    <ToolTip x:Key="UnderlineTooltip" Content="Sottolineato"></ToolTip>
+    <ToolTip x:Key="CutTooltip" Content="Taglia"></ToolTip>
+    <ToolTip x:Key="CopyTooltip" Content="Copia"></ToolTip>
+    <ToolTip x:Key="PasteTooltip" Content="Incolla"></ToolTip>
+  
+</ResourceDictionary>

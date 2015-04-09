@@ -1,0 +1,85 @@
+﻿<UserControl x:Class="SuiteEvents.Modules.MainMenu.MainMenu.Views.MainMenuView"
+            xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:metroControls="clr-namespace:MahApps.Metro.Controls;assembly=MahApps.Metro"
+             mc:Ignorable="d" 
+             d:DesignHeight="600" d:DesignWidth="800">
+
+    <UserControl.Resources>
+        <Style x:Key="LargeTileStyle" TargetType="metroControls:Tile">
+            <Setter Property="Width" Value="300" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="10" />
+        </Style>
+
+        <Style x:Key="SmallTileStyle" TargetType="metroControls:Tile">
+            <Setter Property="Width" Value="147" />
+            <Setter Property="Height" Value="125" />
+            <Setter Property="TitleFontSize" Value="10" />
+        </Style>
+
+        <Style x:Key="GroupHeaderTextStyle"
+           TargetType="TextBlock">
+            <!--<Setter Property="FontFamily"
+                Value="{StaticResource ContentControlThemeFontFamily}" />-->
+            <Setter Property="Foreground"
+            Value="#FFDAEE32" />
+            <Setter Property="TextTrimming"
+                Value="WordEllipsis" />
+            <Setter Property="TextWrapping"
+                Value="NoWrap" />
+            <Setter Property="Typography.StylisticSet20"
+                Value="True" />
+            <Setter Property="Typography.Kerning"
+                Value="True" />
+            <Setter Property="Typography.DiscretionaryLigatures"
+                Value="True" />
+            <Setter Property="Typography.CaseSensitiveForms"
+                Value="True" />
+            <Setter Property="FontSize"
+                Value="36.667" />
+            <Setter Property="LineStackingStrategy"
+                Value="BlockLineHeight" />
+            <Setter Property="FontWeight"
+                Value="Light" />
+            <Setter Property="LineHeight"
+                Value="30" />
+            <Setter Property="Margin"
+                Value="10,0,0,0"/>
+            <Setter Property="RenderTransform">
+                <Setter.Value>
+                    <TranslateTransform X="-2"
+                                    Y="6" />
+                </Setter.Value>
+            </Setter>
+        </Style>
+    </UserControl.Resources>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="87*"/>
+            <ColumnDefinition Width="430*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="83*"/>
+            <RowDefinition Height="259*"/>
+        </Grid.RowDefinitions>
+
+        <TextBlock Grid.Column="1"
+                   VerticalAlignment="Center"
+                   Style="{StaticResource GroupHeaderTextStyle}"
+                   Text="SuiteEvents"/>
+        
+        <WrapPanel Grid.Row="1" Grid.Column="1" Width="940" Height="382" HorizontalAlignment="Left" VerticalAlignment="Top">
+            <metroControls:Tile Style="{StaticResource LargeTileStyle}" 
+                           Command="{Binding AttivaModuloUtentiCommand}">
+                <metroControls:Tile.Background>
+                    <ImageBrush ImageSource="pack://application:,,,/SuiteEvents.Modules.MainMenu;component/Resources/SuiteUsers.jpg" />
+                </metroControls:Tile.Background>
+            </metroControls:Tile>
+        </WrapPanel>
+    </Grid>
+
+</UserControl>

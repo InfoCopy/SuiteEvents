@@ -1,0 +1,50 @@
+﻿<UserControl x:Class="SuiteEvents.Common.UI.Toolbars.UtentiToolbar"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:toolbarControls="clr-namespace:SuiteEvents.Common.UI.ToolbarsControls"
+             mc:Ignorable="d" >
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Toolbars/ToolbarsTooltip.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Toolbars/ToolbarsTemplate.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Toolbars/ToolbarsStyles.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Theme/Paths.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+
+    <ToolBarTray Style="{StaticResource ToolbarTrayStyle}">
+        <ToolBar Style="{StaticResource ToolbarWithoutOverFlow}">
+            <Button ToolTip="{StaticResource BackTooltip}" 
+                    Style="{StaticResource ToolbarButtonStyle}" 
+                    Command="{Binding GoBackCommand}">
+                <toolbarControls:ToolbarButtonContent PathData="{StaticResource BackPath}" />
+            </Button>
+            <toolbarControls:ToolbarSeparator />
+            <Button x:Name="ButtonNew" ToolTip="{StaticResource NewTooltip}"
+                    Style="{StaticResource ToolbarButtonStyle}" 
+                    Command="{Binding CreaUtenteCommand}">
+                <toolbarControls:ToolbarButtonContent PathData="{StaticResource NewIconPath}" />
+            </Button>
+            <Button x:Name="ButtonSave" ToolTip="{StaticResource SaveTooltip}"
+                    Style="{StaticResource ToolbarButtonStyle}" 
+                    Command="{Binding SalvaUtenteCommand}">
+                <toolbarControls:ToolbarButtonContent PathData="{StaticResource SaveIconPath}" />
+            </Button>
+            <Button x:Name="ButtonDelete" ToolTip="{StaticResource DeleteTooltip}" 
+                    Style="{StaticResource ToolbarButtonStyle}" 
+                    Command="{Binding RimuoviUtenteCommand}">
+                <toolbarControls:ToolbarButtonContent PathData="{StaticResource DeleteIconPath}" />
+            </Button>
+            <toolbarControls:ToolbarSeparator />
+            <Button x:Name="ButtonSearch" ToolTip="{StaticResource SearchTooltip}" 
+                    Style="{StaticResource ToolbarButtonStyle}" 
+                    Command="{Binding CercaUtenteCommand}">
+                <toolbarControls:ToolbarButtonContent PathData="{StaticResource SearchPath}" />
+            </Button>
+        </ToolBar>
+    </ToolBarTray>
+</UserControl>

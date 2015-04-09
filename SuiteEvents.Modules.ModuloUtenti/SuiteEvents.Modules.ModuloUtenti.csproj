@@ -1,0 +1,134 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{EB3B14DE-F7EC-46B4-8B79-0EFDEEF225CC}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SuiteEvents.Modules.ModuloUtenti</RootNamespace>
+    <AssemblyName>SuiteEvents.Modules.ModuloUtenti</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="InfragisticsWPF4.Controls.Grids.XamGrid.v12.1, Version=12.1.20121.2314, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.Controls.Menus.XamMenu.v12.1, Version=12.1.20121.2314, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.DataManager.v12.1, Version=12.1.20121.2314, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="InfragisticsWPF4.v12.1, Version=12.1.20121.2314, Culture=neutral, PublicKeyToken=7dd5c3163f2cd0cb, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="System" />
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+    <Reference Include="UIAutomationProvider" />
+    <Reference Include="UIAutomationTypes" />
+    <Reference Include="WindowsBase" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ModuloUtentiController.cs" />
+    <Compile Include="ModuloUtentiModule.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Resources\LabelResources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>LabelResources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Utenti\Interfaces\IModuloUtentiViewModel.cs" />
+    <Compile Include="Utenti\ViewModels\ModuloUtentiViewModel.cs" />
+    <Compile Include="Utenti\Views\ModuloUtentiView.xaml.cs">
+      <DependentUpon>ModuloUtentiView.xaml</DependentUpon>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\Templates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Utenti\Views\ModuloUtentiView.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\LabelResources.resx">
+      <Generator>PublicResXFileCodeGenerator</Generator>
+      <LastGenOutput>LabelResources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SuiteEvents.Common.Infrastructures\SuiteEvents.Common.Infrastructures.csproj">
+      <Project>{b8dc68e6-8015-4ea6-852f-9e0857ff6a3a}</Project>
+      <Name>SuiteEvents.Common.Infrastructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Common.Resources\SuiteEvents.Common.Resources.csproj">
+      <Project>{20377d69-1c42-488b-ad21-502813a91513}</Project>
+      <Name>SuiteEvents.Common.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Common.UI\SuiteEvents.Common.UI.csproj">
+      <Project>{6885dfb2-0e4d-43d5-8721-0f7a674e8732}</Project>
+      <Name>SuiteEvents.Common.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Configuration\SuiteEvents.Configuration.csproj">
+      <Project>{c6c983bd-e9e8-46a7-bbc9-53a5145aa8c5}</Project>
+      <Name>SuiteEvents.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.ReadModel.Services\SuiteEvents.ReadModel.Services.csproj">
+      <Project>{43d42c45-78e9-49ab-bacc-60fb6835950d}</Project>
+      <Name>SuiteEvents.ReadModel.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.ReadModel\SuiteEvents.ReadModel.csproj">
+      <Project>{07ec93dc-6854-4b49-b549-abb36fe8d130}</Project>
+      <Name>SuiteEvents.ReadModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Services\SuiteEvents.Providers.csproj">
+      <Project>{542cfc00-d783-42b5-b1e4-c460e3c93c9d}</Project>
+      <Name>SuiteEvents.Providers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

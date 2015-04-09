@@ -1,0 +1,138 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+
+    <ResourceDictionary.MergedDictionaries>
+        <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Theme/Colors.xaml" />
+    </ResourceDictionary.MergedDictionaries>
+
+        <RadialGradientBrush x:Key="MetroBackgroundBrush" RadiusY="0.844" RadiusX="0.879" Center="0.269,0.107" GradientOrigin="0.269,0.107">
+        <GradientStop Color="{DynamicResource AccentColor}"/>
+        <GradientStop Color="{DynamicResource AccentColor3}" Offset="0.987"/>
+    </RadialGradientBrush>
+
+    <RadialGradientBrush x:Key="WhiteBackgroundBrush" RadiusY="0.844" RadiusX="0.879" Center="0.269,0.107" GradientOrigin="0.269,0.107">
+        <GradientStop Color="{DynamicResource WhiteColor}"/>
+        <GradientStop Color="{DynamicResource WhiteColor}" Offset="0.987"/>
+    </RadialGradientBrush>
+
+    <LinearGradientBrush x:Key="MetroMenuBackgroundBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF040481" Offset="1" />
+        <GradientStop Color="#FF0606AC"/>
+        <GradientStop Color="#FF090999" Offset="0.534"/>
+        <GradientStop Color="#FF02028D" Offset="0.211"/>
+        <GradientStop Color="#FF101074" Offset="0.754"/>
+    </LinearGradientBrush>
+
+    <!-- Brushes for Main menu -->
+    <SolidColorBrush x:Key="GreenSolidBrush" Color="#FF6FBD45" />
+    <SolidColorBrush x:Key="BlueSolidBrush" Color="#FF4BB3DD"/>
+    <SolidColorBrush x:Key="DarkBlueSolidBrush" Color="#FF4164A5"/>
+    <SolidColorBrush x:Key="RedSolidBrush" Color="#FFE12026"/>
+    <SolidColorBrush x:Key="PurpleSolidBrush" Color="#FF80007E"/>
+    <SolidColorBrush x:Key="DarkGreenSolidBrush" Color="#FF008040"/>
+    <SolidColorBrush x:Key="AzureSolidBrush" Color="#FF0094FF"/>
+    <SolidColorBrush x:Key="PinkSolidBrush" Color="#FFFF00C7"/>
+    <SolidColorBrush x:Key="OrangeSolidBrush" Color="#FFFF870F"/>
+    <SolidColorBrush x:Key="LightGreenSolidBrush" Color="#FF2DFF57"/>
+    <SolidColorBrush x:Key="DarkRedSolidBrush" Color="#FF7F0037"/>
+
+    <!-- Brushes for Main menu -->
+    <LinearGradientBrush x:Key="GreenGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF4E8B2D"/>
+        <GradientStop Color="#FF6FBD45" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="BlueGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF3D88A6"/>
+        <GradientStop Color="#FF4BB3DD" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="DarkBlueGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF39578F"/>
+        <GradientStop Color="#FF4164A5" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="RedGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FFAE1C21"/>
+        <GradientStop Color="#FFE12026" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="PurpleGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF680367"/>
+        <GradientStop Color="#FF80007E" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="DarkGreenGradientBrush"  EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF046836"/>
+        <GradientStop Color="#FF008040" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="AzureGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF0078CF"/>
+        <GradientStop Color="#FF0094FF" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="PinkGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FFB8008F"/>
+        <GradientStop Color="#FFFF00C7" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="OrangeGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FFCF6700"/>
+        <GradientStop Color="#FFFF870F" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="LightGreenGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF2AA242"/>
+        <GradientStop Color="#FF2DFF57" Offset="1"/>
+    </LinearGradientBrush>
+    <LinearGradientBrush x:Key="DarkRedGradientBrush" EndPoint="1,1" StartPoint="0,0">
+        <GradientStop Color="#FF63082F"/>
+        <GradientStop Color="#FF7F0037" Offset="1"/>
+    </LinearGradientBrush>
+
+    <Style x:Key="GroupHeaderTextStyle"
+           TargetType="TextBlock">
+        <!--<Setter Property="FontFamily"
+                Value="{StaticResource ContentControlThemeFontFamily}" />-->
+        <Setter Property="Foreground"
+            Value="#B8CB11" />
+        <Setter Property="TextTrimming"
+                Value="WordEllipsis" />
+        <Setter Property="TextWrapping"
+                Value="NoWrap" />
+        <Setter Property="Typography.StylisticSet20"
+                Value="True" />
+        <Setter Property="Typography.Kerning"
+                Value="True" />
+        <Setter Property="Typography.DiscretionaryLigatures"
+                Value="True" />
+        <Setter Property="Typography.CaseSensitiveForms"
+                Value="True" />
+        <Setter Property="FontSize"
+                Value="26.667" />
+        <Setter Property="LineStackingStrategy"
+                Value="BlockLineHeight" />
+        <Setter Property="FontWeight"
+                Value="Light" />
+        <Setter Property="LineHeight"
+                Value="30" />
+        <Setter Property="Margin"
+                Value="10,0,0,0"/>
+        <Setter Property="RenderTransform">
+            <Setter.Value>
+                <TranslateTransform X="-2"
+                                    Y="6" />
+            </Setter.Value>
+        </Setter>
+    </Style>
+
+    <Style x:Key="FormTextBlockStyle"
+           TargetType="TextBlock">
+        <Setter Property="FontSize" Value="14.667"/>
+        <Setter Property="HorizontalAlignment" Value="Right"/>
+        <Setter Property="VerticalAlignment" Value="Center"/>
+        <Setter Property="Margin" Value="0,0,10,0"/>
+    </Style>
+
+    <Style x:Key="FormTextStyle"
+           TargetType="TextBox">
+        <Setter Property="Height" Value="30"/>
+        <Setter Property="Width" Value="500"/>
+        <Setter Property="Margin" Value="10,0,0,0"/>
+        <Setter Property="HorizontalAlignment" Value="Left"/>
+        <Setter Property="VerticalAlignment" Value="Center"></Setter>
+    </Style>
+
+</ResourceDictionary>

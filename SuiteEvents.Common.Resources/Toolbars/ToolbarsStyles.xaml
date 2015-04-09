@@ -1,0 +1,129 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib"
+                    xmlns:converters="clr-namespace:SuiteEvents.Common.Resources.Converters">
+
+    <converters:PercentageConverter x:Key="PercentageConverter" />
+
+    <system:Double x:Key="60">60</system:Double>
+    <system:Double x:Key="50">50</system:Double>
+    <system:Double x:Key="34">34</system:Double>
+    <system:Double x:Key="28">28</system:Double>
+    <system:Double x:Key="16">16</system:Double>
+    <system:Double x:Key="14">14</system:Double>
+    <system:Double x:Key="32">32</system:Double>
+    <system:Double x:Key="20">20</system:Double>
+
+    <system:Double x:Key="SmallToolbarButtonSizeConversionParamter">0.8</system:Double>
+
+    <!-- Stile bottoni Toolbar -->
+    <Style x:Key="ToolbarButtonStyle" TargetType="Button">
+        <Setter Property="VerticalAlignment" Value="Center" />
+        <Setter Property="Cursor" Value="Hand" />
+        <Setter Property="Template">
+            <Setter.Value>
+                <ControlTemplate TargetType="Button">
+                    <Border Name="border" Background="{TemplateBinding Background}">
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center" />
+                    </Border>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FF2398C6" />
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="border" Property="Background" Value="#FF208BB2" />
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Setter.Value>
+        </Setter>
+    </Style>
+    
+    <!-- Stile per la grid root(del contenuto dei bottoni) -->
+    <Style x:Key="PathRootGridStyle" TargetType="Grid">
+        <Setter Property="Height" Value="{StaticResource 60}" />
+        <Setter Property="Width" Value="{StaticResource 50}" />
+    </Style>
+    
+    <Style x:Key="SmallPathRootGridStyle" TargetType="Grid">
+        <Setter Property="Height" Value="{Binding Source={StaticResource 60}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+        <Setter Property="Width" Value="{Binding Source={StaticResource 50}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+    </Style>
+
+    <!-- Stile per la grid contenente il bordo rotondo -->
+    <Style x:Key="RoundBorderRootGridStyle" TargetType="Grid">
+        <Setter Property="Height" Value="{StaticResource 34}" />
+        <Setter Property="Width" Value="{StaticResource 34}" />
+        <Setter Property="Visibility" Value="Visible" />
+    </Style>
+    
+    <Style x:Key="SmallRoundBorderRootGridStyle" TargetType="Grid">
+        <Setter Property="Visibility" Value="Visible" />
+        <Setter Property="Height" Value="{Binding Source={StaticResource 34}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+        <Setter Property="Width" Value="{Binding Source={StaticResource 34}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+    </Style>
+
+    <!-- Stile per il path bordo rotondo -->
+    <Style x:Key="BorderPathStyle" TargetType="Path">
+        <Setter Property="Stretch" Value="Fill" />
+        <Setter Property="Fill" Value="#FFFFFFFF" />
+        <Setter Property="Visibility" Value="Visible" />
+    </Style>
+
+    <!-- Stile per il path delle icone -->
+    <Style x:Key="IconPathStyle" TargetType="Path">
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Fill" Value="#FFFFFFFF" />
+        <Setter Property="Height" Value="{StaticResource 16}" />
+        <Setter Property="Width" Value="{StaticResource 16}" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+    </Style>
+    
+    <Style x:Key="SmallIconPathStyle" TargetType="Path">
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Fill" Value="#FFFFFFFF" />
+        <Setter Property="Height" Value="{Binding Source={StaticResource 16}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+        <Setter Property="Width" Value="{Binding Source={StaticResource 16}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+    </Style>
+
+    <!-- Stile per il path del separatore -->
+    <Style x:Key="SeparatorPathStyle" TargetType="Path">
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Fill" Value="#FFFFFFFF" />
+        <Setter Property="Height" Value="{StaticResource 32}" />
+        <Setter Property="Width" Value="{StaticResource 20}" />
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+    </Style>
+    
+    <Style x:Key="SmallSeparatorPathStyle" TargetType="Path">
+        <Setter Property="Stretch" Value="Uniform" />
+        <Setter Property="Fill" Value="#FFFFFFFF" />
+        <Setter Property="Height" Value="{Binding Source={StaticResource 32}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+        <Setter Property="Width" Value="{Binding Source={StaticResource 20}, 
+                                                    Converter={StaticResource PercentageConverter}, 
+                                                    ConverterParameter={StaticResource SmallToolbarButtonSizeConversionParamter}}" />
+
+        <Setter Property="Margin" Value="0,0,0,0" />
+        <Setter Property="RenderTransformOrigin" Value="0.5, 0.5" />
+    </Style>
+
+</ResourceDictionary>

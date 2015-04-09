@@ -1,0 +1,121 @@
+﻿<UserControl xmlns:ig="http://schemas.infragistics.com/xaml"  x:Class="SuiteEvents.Modules.ModuloUtenti.Utenti.Views.ModuloUtentiView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:moduleResources="clr-namespace:SuiteEvents.Modules.ModuloUtenti.Resources"
+             xmlns:suiteEventsToolbars="clr-namespace:SuiteEvents.Common.UI.Toolbars;assembly=SuiteEvents.Common.UI"
+             xmlns:suitePassword="clr-namespace:SuiteEvents.Common.UI.Helpers;assembly=SuiteEvents.Common.UI"
+             mc:Ignorable="d" 
+             d:DesignHeight="300" d:DesignWidth="800">
+    <UserControl.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Theme/Brushes.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Theme/Numbers.xaml" />
+                <ResourceDictionary Source="pack://application:,,,/SuiteEvents.Common.Resources;component/Theme/Styles.xaml" />
+            </ResourceDictionary.MergedDictionaries>
+        </ResourceDictionary>
+    </UserControl.Resources>
+    
+    <Grid>
+        <Grid.Resources>
+            <moduleResources:LabelResources x:Key="LabelResource" />
+        </Grid.Resources>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="{DynamicResource ToolbarHeight}" />
+            <RowDefinition Height="10" />
+            <RowDefinition Height="*" />
+        </Grid.RowDefinitions>
+
+        <!-- Header -->
+        <Grid Grid.Row="0" Background="{DynamicResource MetroBackgroundBrush}">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="300" />
+                <ColumnDefinition Width="{StaticResource ColumnSeparationWidth}"/>
+                <ColumnDefinition Width="*" />
+                <ColumnDefinition Width="*" />
+            </Grid.ColumnDefinitions>
+
+            <suiteEventsToolbars:UtentiToolbar x:Name="UtentiToolbar"/>
+            <TextBlock Grid.Column="2" Text="{Binding ModuleTitle, Source={StaticResource LabelResource}}" Style="{DynamicResource ModulesTitle}" />
+        </Grid>
+
+        <Grid Grid.Row="2">
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="*"/>
+                <ColumnDefinition Width="{StaticResource ColumnSeparationWidth}"/>
+                <ColumnDefinition Width="*"/>
+            </Grid.ColumnDefinitions>
+
+            <ig:XamGrid Grid.Column="0" x:Name="GridUtenti"
+                        VerticalAlignment="Stretch"
+                        HorizontalAlignment="Stretch"
+                        AutoGenerateColumns="False"
+                        ColumnWidth="*"
+                        ItemsSource="{Binding AnagraficaUtenti}"
+                        ActiveItem="{Binding SelectedUtente}">
+                <ig:XamGrid.SelectionSettings>
+                    <ig:SelectionSettings CellClickAction="SelectRow" RowSelection="Multiple" />
+                </ig:XamGrid.SelectionSettings>
+                <ig:XamGrid.Columns>
+                    <ig:TextColumn Key="UserName" HeaderText="UserName" Width="150"/>
+                    <ig:TextColumn Key="Nome" HeaderText="Nome"/>
+                    <ig:TextColumn Key="Cognome" HeaderText="Cognome"/>
+                </ig:XamGrid.Columns>
+                <ig:XamGrid.FilteringSettings>
+                    <ig:FilteringSettings AllowFiltering="FilterRowTop" 
+                                      FilteringScope="ChildBand" />
+                </ig:XamGrid.FilteringSettings>
+            </ig:XamGrid>
+            <Grid Grid.Column="2"
+                  DataContext="{Binding SelectedUser, Mode=TwoWay}">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowSeparationHeight}"/>
+                    <RowDefinition Height="{DynamicResource RowHeight}"/>
+                </Grid.RowDefinitions>
+                <Grid.ColumnDefinitions>
+                    <ColumnDefinition Width="Auto"/>
+                    <ColumnDefinition Width="{DynamicResource ColumnSeparationWidth}"/>
+                    <ColumnDefinition Width="Auto"/>
+                </Grid.ColumnDefinitions>
+
+                <TextBlock Grid.Row="1" Grid.Column="0" Style="{DynamicResource FormTextBlockStyle}" Text="{Binding UserName, Source={StaticResource LabelResource}}"/>
+                <TextBlock Grid.Row="3" Grid.Column="0" Style="{DynamicResource FormTextBlockStyle}" Text="{Binding Password, Source={StaticResource LabelResource}}"/>
+                <TextBlock Grid.Row="5" Grid.Column="0" Style="{DynamicResource FormTextBlockStyle}" Text="{Binding Nome, Source={StaticResource LabelResource}}" />
+                <TextBlock Grid.Row="7" Grid.Column="0" Style="{DynamicResource FormTextBlockStyle}" Text="{Binding Cognome, Source={StaticResource LabelResource}}" />
+                <TextBlock Grid.Row="9" Grid.Column="0" Style="{DynamicResource FormTextBlockStyle}" Text="{Binding Email, Source={StaticResource LabelResource}}" />
+
+                <TextBox Grid.Column="2" Grid.Row="1"
+                         Style="{DynamicResource FormTextStyle}"
+                         Text="{Binding UserName, Mode=TwoWay}"/>
+                <PasswordBox Grid.Column="2" Grid.Row="3"
+                             Style="{DynamicResource DetailPasswordBox}"
+                             suitePassword:PasswordBoxAssistant.BindPassword="True"
+                             suitePassword:PasswordBoxAssistant.BoundPassword="{Binding Password, Mode=TwoWay}"
+                             Width="400" />
+                <TextBox Grid.Column="2" Grid.Row="5"
+                         Style="{DynamicResource FormTextStyle}"
+                         Text="{Binding Nome, Mode=TwoWay}"/>
+                <TextBox Grid.Column="2" Grid.Row="7"
+                         Style="{DynamicResource FormTextStyle}"
+                         Text="{Binding Cognome, Mode=TwoWay}"/>
+                <TextBox Grid.Column="2" Grid.Row="9"
+                         Style="{DynamicResource FormTextStyle}"
+                         Text="{Binding Email, Mode=TwoWay}"/>
+            </Grid>
+        </Grid>
+    </Grid>
+</UserControl>

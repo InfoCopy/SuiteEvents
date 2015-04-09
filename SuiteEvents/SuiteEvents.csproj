@@ -1,0 +1,212 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C250929C-EAB3-4E83-946B-5A351DDCE178}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SuiteEvents</RootNamespace>
+    <AssemblyName>SuiteEvents</AssemblyName>
+    <TargetFrameworkVersion>v4.5.1</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>infocopy.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CommonDomain, Version=1.6.0.0, Culture=neutral, PublicKeyToken=ec37a15dc44010cd, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\CommonDomain.1.6.0.3\lib\net40\CommonDomain.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.2\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MahApps.Metro">
+      <HintPath>..\packages\MahApps.Metro.1.0.0.0\lib\net45\MahApps.Metro.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity, Version=3.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.Configuration">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.Configuration.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Practices.Unity.RegistrationByConvention">
+      <HintPath>..\packages\Unity.3.5.1404.0\lib\net45\Microsoft.Practices.Unity.RegistrationByConvention.dll</HintPath>
+    </Reference>
+    <Reference Include="NEventStore, Version=4.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\packages\NEventStore.4.0.0.15\lib\net40\NEventStore.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Windows.Interactivity, Version=4.5.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\MahApps.Metro.1.0.0.0\lib\net45\System.Windows.Interactivity.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </ApplicationDefinition>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Controller.cs" />
+    <Compile Include="SuiteEventsModule.cs" />
+    <Compile Include="Shell\ShellSuiteEvents.xaml.cs">
+      <DependentUpon>ShellSuiteEvents.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Shell\ShellSuiteEventsViewModel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Interfaces\IShellSuiteEvents.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <AppDesigner Include="Properties\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\SuiteEvents.Common.Infrastructures\SuiteEvents.Common.Infrastructures.csproj">
+      <Project>{b8dc68e6-8015-4ea6-852f-9e0857ff6a3a}</Project>
+      <Name>SuiteEvents.Common.Infrastructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Common.Resources\SuiteEvents.Common.Resources.csproj">
+      <Project>{20377d69-1c42-488b-ad21-502813a91513}</Project>
+      <Name>SuiteEvents.Common.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Common.UI\SuiteEvents.Common.UI.csproj">
+      <Project>{6885dfb2-0e4d-43d5-8721-0f7a674e8732}</Project>
+      <Name>SuiteEvents.Common.UI</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Configuration\SuiteEvents.Configuration.csproj">
+      <Project>{c6c983bd-e9e8-46a7-bbc9-53a5145aa8c5}</Project>
+      <Name>SuiteEvents.Configuration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Domain.Infrastructures\SuiteEvents.Domain.Infrastructures.csproj">
+      <Project>{25925065-8777-48fd-b5ec-92b5ea558450}</Project>
+      <Name>SuiteEvents.Domain.Infrastructures</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Domain.Messages\SuiteEvents.Domain.Messages.csproj">
+      <Project>{7418ea05-ef33-4bd4-9ced-b16510f5c0a5}</Project>
+      <Name>SuiteEvents.Domain.Messages</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Domain.Resources\SuiteEvents.Domain.Resources.csproj">
+      <Project>{5d77d7f0-1d7e-4e04-846b-f6b2a09b8cd4}</Project>
+      <Name>SuiteEvents.Domain.Resources</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Domain\SuiteEvents.Domain.csproj">
+      <Project>{f4c7c927-20d7-4cb8-a0d8-ac2a3ed38563}</Project>
+      <Name>SuiteEvents.Domain</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Modules.MainMenu\SuiteEvents.Modules.MainMenu.csproj">
+      <Project>{63dbc1d0-bf5c-4356-8030-3a09f824129c}</Project>
+      <Name>SuiteEvents.Modules.MainMenu</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Modules.ModuloUtenti\SuiteEvents.Modules.ModuloUtenti.csproj">
+      <Project>{eb3b14de-f7ec-46b4-8b79-0efdeef225cc}</Project>
+      <Name>SuiteEvents.Modules.ModuloUtenti</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.ReadModel.EntityFramework\SuiteEvents.ReadModel.EntityFramework.csproj">
+      <Project>{e14bf247-a40b-4e1b-93ea-5ad181f77862}</Project>
+      <Name>SuiteEvents.ReadModel.EntityFramework</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.ReadModel.Services\SuiteEvents.ReadModel.Services.csproj">
+      <Project>{43d42c45-78e9-49ab-bacc-60fb6835950d}</Project>
+      <Name>SuiteEvents.ReadModel.Services</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.ReadModel\SuiteEvents.ReadModel.csproj">
+      <Project>{07ec93dc-6854-4b49-b549-abb36fe8d130}</Project>
+      <Name>SuiteEvents.ReadModel</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SuiteEvents.Services\SuiteEvents.Providers.csproj">
+      <Project>{542cfc00-d783-42b5-b1e4-c460e3c93c9d}</Project>
+      <Name>SuiteEvents.Providers</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="infocopy.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Resources\SuiteEventsTemplates.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Shell\ShellSuiteEvents.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
