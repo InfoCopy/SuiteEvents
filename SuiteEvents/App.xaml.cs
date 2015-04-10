@@ -4,6 +4,7 @@ using System.Windows;
 
 using Microsoft.Practices.Unity;
 using SuiteEvents.Common.Infrastructures;
+using SuiteEvents.Domain.Infrastructures;
 using SuiteEvents.Interfaces;
 using SuiteEvents.Modules.MainMenu;
 using SuiteEvents.Modules.ModuloUtenti;
@@ -25,6 +26,7 @@ namespace SuiteEvents
             try
             {
                 container.Resolve<SuiteEventsBoot>()
+                    .RegisterModule(typeof(SqlServerEventStoreModule))
                     .RegisterModule(typeof(SuiteEventsModule))
                     .RegisterModule(typeof (MainMenuModule))
                     .RegisterModule(typeof(ModuloUtentiModule))
@@ -32,7 +34,7 @@ namespace SuiteEvents
             }
             catch (Exception ex)
             {
-                this.WriteErrorInRegistryApplication(ex, "SuiteEvents.OnStartup.RegisterModule");
+                WriteErrorInRegistryApplication(ex, "SuiteEvents.OnStartup.RegisterModule");
             }
 
             try
@@ -43,7 +45,7 @@ namespace SuiteEvents
             }
             catch (Exception ex)
             {
-                this.WriteErrorInRegistryApplication(ex, "SuiteEvents.OnStartup.Run");
+                WriteErrorInRegistryApplication(ex, "SuiteEvents.OnStartup.Run");
             }
         }
 
@@ -51,7 +53,7 @@ namespace SuiteEvents
         {
             var ex = e.ExceptionObject as Exception;
             //suite4log.WriteExceptionLog("CurrentDomain_UnhandledException", ex);
-            this.WriteErrorInRegistryApplication(ex, "CurrentDomain_UnhandledException");
+            WriteErrorInRegistryApplication(ex, "CurrentDomain_UnhandledException");
         }
 
         public bool DoHandle { get; set; }
@@ -63,18 +65,18 @@ namespace SuiteEvents
 
             //suite4log.WriteExceptionLog("Application_DispatcherUnhandledException", e.Exception);
 
-            this.WriteErrorInRegistryApplication(e.Exception, "Application_DispatcherUnhandledException");
+            WriteErrorInRegistryApplication(e.Exception, "Application_DispatcherUnhandledException");
 
             e.Handled = false;
         }
 
-        private void WriteErrorInRegistryApplication(Exception ex, string procedure)
+        private static void WriteErrorInRegistryApplication(Exception ex, string procedure)
         {
             const string sourceName = "SuiteEvents.ExceptionLog";
 
-            if (EventLog.SourceExists(sourceName)) return;
+            if (!EventLog.SourceExists(sourceName))
+                EventLog.CreateEventSource(sourceName, "SuiteEvents");
 
-            EventLog.CreateEventSource(sourceName, "SuiteEvents");
             var eventLog = new EventLog
             {
                 Source = sourceName
